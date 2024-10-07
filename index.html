@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Encoding and Bits & Bytes Tutorial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    >
+    <!-- Custom CSS -->
+    <style>
+        body {
+            padding-top: 56px;
+        }
+        .code-snippet {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+        .footer {
+            padding: 20px 0;
+            text-align: center;
+        }
+        .quiz-option {
+            cursor: pointer;
+        }
+        .quiz-option:hover {
+            background-color: #f1f1f1;
+        }
+        .correct {
+            background-color: #d4edda !important;
+        }
+        .incorrect {
+            background-color: #f8d7da !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Encoding Tutorial</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                      <a class="nav-link" href="#section1">Number Systems</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#section2">Binary Arithmetic</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#section3">Encoding Schemes</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#section4">Hands-On Exercises</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#section5">Advanced Topics</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#section6">Applications</a>
+                  </li>
+              </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <!-- Introduction -->
+        <section id="introduction">
+            <div class="row">
+                <div class="col">
+                    <h1 class="mb-4">Understanding Encoding and Bits & Bytes</h1>
+                    <p>Ever wondered how computers understand and process the word <strong>"Hello"</strong>? This tutorial will guide you through the fascinating world of number systems, binary arithmetic, and encoding schemes that form the backbone of modern computing.</p>
+                    <p>By the end of this tutorial, you will be able to:</p>
+                    <ul>
+                        <li>Understand different number systems: binary, decimal, and hexadecimal.</li>
+                        <li>Perform conversions between these number systems.</li>
+                        <li>Comprehend how characters are encoded using schemes like ASCII and Unicode.</li>
+                        <li>Execute binary arithmetic operations.</li>
+                        <li>Apply this knowledge using practical tools and exercises.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Section 1: Number Systems -->
+        <section id="section1">
+            <div class="row">
+                <div class="col">
+                    <h2>1. Introduction to Number Systems</h2>
+                    <p>In mathematics and computing, numbers can be represented using different systems based on various bases. The most common are:</p>
+                    <ul>
+                        <li><strong>Decimal (Base 10):</strong> Uses digits 0-9.</li>
+                        <li><strong>Binary (Base 2):</strong> Uses digits 0 and 1.</li>
+                        <li><strong>Hexadecimal (Base 16):</strong> Uses digits 0-9 and letters A-F.</li>
+                    </ul>
+                    <h3>Understanding Place Values</h3>
+                    <p>Each digit in a number has a place value determined by its position and the base of the number system.</p>
+                    <div class="code-snippet">
+                        <pre>
+Decimal Example: 316<sub>10</sub> = 3×10² + 1×10¹ + 6×10⁰
+Binary Example: 1010<sub>2</sub> = 1×2³ + 0×2² + 1×2¹ + 0×2⁰
+Hexadecimal Example: 4A<sub>16</sub> = 4×16¹ + 10×16⁰
+                        </pre>
+                    </div>
+                    <h3>Conversion Example</h3>
+                    <p>Let's convert the decimal number <strong>316</strong> to binary and hexadecimal.</p>
+                    <h4>Decimal to Binary</h4>
+                    <p>Divide the number by 2 and record the remainders:</p>
+                    <div class="code-snippet">
+                        <pre>
+316 ÷ 2 = 158  Remainder: 0
+158 ÷ 2 = 79   Remainder: 0
+79 ÷ 2 = 39    Remainder: 1
+39 ÷ 2 = 19    Remainder: 1
+19 ÷ 2 = 9     Remainder: 1
+9 ÷ 2 = 4      Remainder: 1
+4 ÷ 2 = 2      Remainder: 0
+2 ÷ 2 = 1      Remainder: 0
+1 ÷ 2 = 0      Remainder: 1
+Binary: Read remainders from bottom to top: <strong>100111100</strong>
+                        </pre>
+                    </div>
+                    <h4>Decimal to Hexadecimal</h4>
+                    <p>Divide the number by 16 and record the remainders:</p>
+                    <div class="code-snippet">
+                        <pre>
+316 ÷ 16 = 19  Remainder: 12 (C)
+19 ÷ 16 = 1    Remainder: 3
+1 ÷ 16 = 0     Remainder: 1
+Hexadecimal: Read remainders from bottom to top: <strong>13C</strong>
+                        </pre>
+                    </div>
+                    <h3>Interactive Quiz</h3>
+                    <p>Match the following numbers in different bases:</p>
+                    <ul>
+                        <li>Binary: 1010</li>
+                        <li>Decimal: 10</li>
+                        <li>Hexadecimal: A</li>
+                    </ul>
+                    <p><em>Answer:</em> They all represent the number 10 in different bases.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Section 2: Binary Arithmetic -->
+        <section id="section2">
+            <div class="row">
+                <div class="col">
+                    <h2>2. Binary Arithmetic Operations</h2>
+                    <p>Binary arithmetic is similar to decimal arithmetic but uses only two digits: 0 and 1.</p>
+                    <h3>Binary Addition Rules</h3>
+                    <ul>
+                        <li>0 + 0 = 0</li>
+                        <li>0 + 1 = 1</li>
+                        <li>1 + 0 = 1</li>
+                        <li>1 + 1 = 0 (carry over 1)</li>
+                    </ul>
+                    <h3>Addition Example</h3>
+                    <p>Add binary numbers 0111 (7) and 0100 (4):</p>
+                    <div class="code-snippet">
+                        <pre>
+  0111
++ 0100
+-------
+  1011  (Binary) = 11 (Decimal)
+                        </pre>
+                    </div>
+                    <h3>Interactive Exercise</h3>
+                    <p>Try adding the binary numbers 1101 and 1011.</p>
+                    <p><em>Solution:</em></p>
+                    <div class="code-snippet">
+                        <pre>
+  1101
++ 1011
+-------
+ 11000  (Binary) = 24 (Decimal)
+                        </pre>
+                    </div>
+                    <h3>Binary Multiplication Rules</h3>
+                    <ul>
+                        <li>0 × 0 = 0</li>
+                        <li>0 × 1 = 0</li>
+                        <li>1 × 0 = 0</li>
+                        <li>1 × 1 = 1</li>
+                    </ul>
+                    <h3>Multiplication Example</h3>
+                    <p>Multiply binary numbers 1001 and 1011:</p>
+                    <div class="code-snippet">
+                        <pre>
+      1001
+    × 1011
+    -------
+      1001      (1001 × 1)
+     0000       (1001 × 1 shifted left)
+    1001        (1001 × 0 shifted left twice)
+  +1001         (1001 × 1 shifted left thrice)
+    -------
+  1100011  (Binary) = 99 (Decimal)
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Section 3: Encoding Schemes -->
+        <section id="section3">
+            <div class="row">
+                <div class="col">
+                    <h2>3. Understanding Encoding Schemes</h2>
+                    <p>Computers represent characters and symbols using encoding schemes. The most common are ASCII and Unicode.</p>
+                    <h3>ASCII Encoding</h3>
+                    <p>ASCII uses 7 bits to represent characters, allowing for 128 unique symbols.</p>
+                    <div class="code-snippet">
+                        <pre>
+A = 65 -> 1000001
+B = 66 -> 1000010
+C = 67 -> 1000011
+...
+a = 97 -> 1100001
+b = 98 -> 1100010
+c = 99 -> 1100011
+                        </pre>
+                    </div>
+                    <h3>Unicode and UTF-8</h3>
+                    <p>Unicode aims to represent all characters from all writing systems. UTF-8 is a variable-length encoding that uses 1 to 4 bytes per character.</p>
+                    <h3>Encoding Example</h3>
+                    <p>Let's encode the word <strong>"Hello"</strong> using ASCII:</p>
+                    <div class="code-snippet">
+                        <pre>
+H -> 72 -> 01001000
+e -> 101 -> 01100101
+l -> 108 -> 01101100
+l -> 108 -> 01101100
+o -> 111 -> 01101111
+Binary Representation: 01001000 01100101 01101100 01101100 01101111
+                        </pre>
+                    </div>
+                    <h3>Interactive Quiz</h3>
+                    <p>Decode the following ASCII binary code to find the hidden word:</p>
+                    <div class="code-snippet">
+                        <pre>
+01001010 01101111 01101000 01101110
+                        </pre>
+                    </div>
+                    <p><em>Answer:</em> J o h n</p>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Section 4: Hands-On Exercises -->
+        <section id="section4">
+            <div class="row">
+                <div class="col">
+                    <h2>4. Hands-On Exercises</h2>
+                    <h3>Exercise 1: Decimal to Binary Conversion</h3>
+                    <p>Convert the decimal number <strong>57</strong> to binary.</p>
+                    <h4>Solution:</h4>
+                    <div class="code-snippet">
+                        <pre>
+57 ÷ 2 = 28  Remainder: 1
+28 ÷ 2 = 14  Remainder: 0
+14 ÷ 2 = 7   Remainder: 0
+7 ÷ 2 = 3    Remainder: 1
+3 ÷ 2 = 1    Remainder: 1
+1 ÷ 2 = 0    Remainder: 1
+Binary: Read remainders from bottom to top: <strong>111001</strong>
+                        </pre>
+                    </div>
+                    <h3>Exercise 2: Command-Line Practice</h3>
+                    <p>Use the following commands in your terminal to perform conversions:</p>
+                    <div class="code-snippet">
+                        <pre>
+# Convert binary to decimal
+echo "$((2#1010))"
+
+# Convert binary to hexadecimal
+printf '%x\n' "$((2#1010))"
+                        </pre>
+                    </div>
+                    <h3>Interactive Coding Exercise</h3>
+                    <p>Write a simple script in your preferred programming language to convert decimal numbers to binary.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Section 5: Advanced Topics -->
+        <section id="section5">
+            <div class="row">
+                <div class="col">
+                    <h2>5. Advanced Topics: Overflow and Negative Numbers</h2>
+                    <h3>Understanding Overflow</h3>
+                    <p>In computing, overflow occurs when calculations exceed the maximum limit of the number of bits allocated.</p>
+                    <h4>Example:</h4>
+                    <div class="code-snippet">
+                        <pre>
+8-bit max value: 11111111 (255)
+Adding 1: 11111111 + 00000001 = 00000000 (Overflow)
+                        </pre>
+                    </div>
+                    <h3>Negative Numbers and Two's Complement</h3>
+                    <p>Computers use two's complement to represent negative numbers.</p>
+                    <h4>Calculating Two's Complement:</h4>
+                    <ol>
+                        <li>Find the binary representation.</li>
+                        <li>Invert the digits (one's complement).</li>
+                        <li>Add 1 to the result.</li>
+                    </ol>
+                    <h4>Example:</h4>
+                    <p>Represent -5 in 8-bit binary:</p>
+                    <div class="code-snippet">
+                        <pre>
+Step 1: 5 in binary: 00000101
+Step 2: One's complement: 11111010
+Step 3: Add 1: 11111010 + 1 = 11111011
+Two's complement representation of -5: 11111011
+                        </pre>
+                    </div>
+                    <h3>Problem-Solving Exercise</h3>
+                    <p>Calculate 7 - 3 using two's complement in binary.</p>
+                    <h4>Solution:</h4>
+                    <div class="code-snippet">
+                        <pre>
+7 in binary: 00000111
+3 in binary: 00000011
+Two's complement of 3:
+ - One's complement: 11111100
+ - Add 1: 11111100 + 1 = 11111101
+Add 7 and two's complement of 3:
+ 00000111
++11111101
+-----------
+ 00000012 (Ignore carry)
+Result: 00000012 = 4 in decimal
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Section 6: Applications and Tools -->
+        <section id="section6">
+            <div class="row">
+                <div class="col">
+                    <h2>6. Practical Applications and Tools</h2>
+                    <p>Understanding encoding and binary systems is crucial in various computing fields.</p>
+                    <h3>Using Command-Line Tools</h3>
+                    <p>Tools like <code>echo</code>, <code>printf</code>, and <code>hexdump</code> help in manipulating and understanding data at a low level.</p>
+                    <h4>Example: Viewing Hexadecimal Representation</h4>
+                    <div class="code-snippet">
+                        <pre>
+# Create a text file
+echo "Hello World" > example.txt
+
+# View hexadecimal representation
+hexdump example.txt
+                        </pre>
+                    </div>
+                    <p>This command will display the hexadecimal codes corresponding to the characters in "Hello World".</p>
+                    <h3>Hands-On Project</h3>
+                    <p>Create a simple web application that converts text to its ASCII binary representation.</p>
+                    <h4>Suggested Steps:</h4>
+                    <ol>
+                        <li>Set up an HTML form to accept user input.</li>
+                        <li>Use JavaScript to process the input and perform the conversion.</li>
+                        <li>Display the binary output on the page.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Conclusion -->
+        <section id="conclusion">
+            <div class="row">
+                <div class="col">
+                    <h2>Conclusion</h2>
+                    <p>We have explored the fundamentals of number systems, binary arithmetic, and encoding schemes. These concepts are foundational in understanding how computers process and represent data. By practicing conversions and utilizing command-line tools, you can deepen your comprehension and apply this knowledge in various technological domains.</p>
+                    <p>Continue exploring and experimenting to become more proficient in these essential computing concepts.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer bg-light mt-4">
+            <div class="container">
+                <p>&copy; 2023 Encoding Tutorial. All rights reserved.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <!-- Custom JS -->
+    <script>
+        // Placeholder for any custom JavaScript if needed
+    </script>
+</body>
+</html>
